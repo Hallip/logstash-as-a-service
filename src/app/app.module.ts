@@ -11,13 +11,15 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './pages/main/main.component';
 import { DragDropComponent } from './components/drag-drop/drag-drop.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     DragDropComponent,
-    SidebarComponent
+    SidebarComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

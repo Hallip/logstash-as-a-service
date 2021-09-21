@@ -16,22 +16,52 @@ export class DragDropComponent implements OnInit {
 
   todos = [
     {
-      name: 'Angular',
+      name: 'If',
       category: 'Web Development'
     },
     {
-      name: 'Flexbox',
+      name: 'elseif',
       category: 'Web Development'
     },
     {
-      name: 'iOS',
+      name: 'Else',
       category: 'App Development'
-    },
-    {
-      name: 'Java',
-      category: 'Software development'
     }
   ];
+
+  inputPlugins = [
+    {
+      name: 'sql',
+      category: 'Web Development'
+    },
+    {
+      name: 'file',
+      category: 'Web Development'
+    }
+  ];
+
+  filterPlugins = [
+    {
+      name: 'grock',
+      category: 'Web Development'
+    },
+    {
+      name: 'mutate',
+      category: 'Web Development'
+    }
+  ];
+
+  outupPlugins = [
+    {
+      name: 'grock',
+      category: 'Web Development'
+    },
+    {
+      name: 'mutate',
+      category: 'Web Development'
+    }
+  ];
+
 
   inputs = [
     {
@@ -50,8 +80,6 @@ export class DragDropComponent implements OnInit {
       name: 'Android',
       category: 'Mobile Development'
     }
-  ];
-  reciclerBin = [
   ];
 
   onDrop(event: CdkDragDrop<string[]>) {
