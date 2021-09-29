@@ -1,5 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Nunito:300,400,600,700&display=swap");
+
+
 body {
+    font-family: "Nunito", sans-serif;
+    overflow-x: hidden !important;
+    font-size: 1.170rem;
     color: #DDDDDD;
     background-color: #161616;
+  }
+.title{
+  font-size:x-large;
+  font-weight: 600;
+}
+.subtitle {
+  font-size:large;
+  font-weight: 600;
+}
+p{
+  font-size: medium;
+  font-weight: 300;
 }

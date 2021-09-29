@@ -12,6 +12,7 @@ import { MainComponent } from './pages/main/main.component';
 import { DragDropComponent } from './components/drag-drop/drag-drop.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { PluginCardComponent } from './components/plugin-card/plugin-card.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     MainComponent,
     DragDropComponent,
     SidebarComponent,
-    NavbarComponent
+    NavbarComponent,
+    PluginCardComponent
   ],
   imports: [
     BrowserModule,

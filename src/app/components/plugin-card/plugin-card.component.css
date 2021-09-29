@@ -1,0 +1,40 @@
+.remove{
+    margin-left: auto;
+}
+.remove-button{
+    color: #F92672;
+    font-size: 32px;
+    padding-top: 0.3em;
+}
+.remove-button:hover{
+    color: #ce0a52;
+    cursor: pointer;
+}
+
+.element{
+    display: flex;
+    width: 100%;
+
+    background-color: #292B2B;
+    border-radius: 5px;
+}
+
+.accordion-header{
+    background-color: #5e5f5f;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    cursor: pointer;
+}
+.acordion {
+    width: 100%;
+}
+.accordion-body{
+    background-color: #8a8a8a;
+
+    display: none;
+}
+.acordion-open{
+    display: flex;
+}

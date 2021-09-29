@@ -1,0 +1,20 @@
+<div class="element">
+  <div class="acordion">
+    <div>
+      <span class="title">{{content?.name}}</span>
+    </div>
+    <div *ngIf="!source">
+      <div class="accordion-header" (click)="opened =!opened">
+        <div>
+          <span class="subtitle">Description</span>
+        </div>
+      </div>
+      <div class="accordion-body" [ngClass]="{'acordion-open': opened}">
+        <p>{{content?.description}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="remove" *ngIf="source">
+    <i class="far fa-times-circle remove-button"></i>
+  </div>
+</div>

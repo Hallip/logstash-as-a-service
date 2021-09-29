@@ -1,7 +1,6 @@
 <div class="dev-tools">
   <div class="row">
-
-    <div class="col-4">
+    <div class="col-3">
       <!-- <div class="list" cdkDropList #todoList="cdkDropList" [cdkDropListData]="todos"
         [cdkDropListConnectedTo]="[inputsList,filtersList,OutputList]" (cdkDropListDropped)="onDrop($event)">
         <h2>General</h2>
@@ -12,84 +11,82 @@
           </mat-card-header>
         </mat-card>
       </div> -->
-      <div class="list" cdkDropList #todoList="cdkDropList" [cdkDropListData]="inputPlugins"
-        [cdkDropListConnectedTo]="[inputsList]" (cdkDropListDropped)="onDrop($event)">
-        <h2>Inputs</h2>
-        <mat-card *ngFor="let input of inputPlugins" cdkDrag>
-          <mat-card-header>
-            <mat-card-title>{{input.name}}</mat-card-title>
-            <mat-card-subtitle>{{input.category}}</mat-card-subtitle>
-          </mat-card-header>
-        </mat-card>
+      <div class="section">
+        <div class="section-head">
+          <h2 class="m-0">Inputs</h2>
+        </div>
+        <div class="list" cdkDropList #todoList="cdkDropList" [cdkDropListData]="inputPlugins"
+          [cdkDropListConnectedTo]="[inputsList]" (cdkDropListDropped)="onDrop($event)">
+          <div *ngFor="let input of inputPlugins" cdkDrag>
+            <app-plugin-card [content]="input" [source]="false"></app-plugin-card>
+          </div>
+        </div>
       </div>
-      <div class="list" cdkDropList #todoList="cdkDropList" [cdkDropListData]="filterPlugins"
-        [cdkDropListConnectedTo]="[filtersList]" (cdkDropListDropped)="onDrop($event)">
-        <h2>Filters</h2>
-        <mat-card *ngFor="let filter of filterPlugins" cdkDrag>
-          <mat-card-header>
-            <mat-card-title>{{filter.name}}</mat-card-title>
-            <mat-card-subtitle>{{filter.category}}</mat-card-subtitle>
-          </mat-card-header>
-        </mat-card>
+      <div class="section">
+        <div class="section-head">
+          <h2 class="m-0">Filters</h2>
+        </div>
+        <div class="list" cdkDropList #todoList="cdkDropList" [cdkDropListData]="filterPlugins"
+          [cdkDropListConnectedTo]="[filtersList]" (cdkDropListDropped)="onDrop($event)">
+          <div *ngFor="let filter of filterPlugins ; index as i;" cdkDrag>
+            <app-plugin-card [content]="filter" [source]="false" [acordionId]="'acordionFilter'+i"></app-plugin-card>
+          </div>
+        </div>
       </div>
-      <div class="list" cdkDropList #todoList="cdkDropList" [cdkDropListData]="outupPlugins"
-        [cdkDropListConnectedTo]="[OutputList]" (cdkDropListDropped)="onDrop($event)">
-        <h2>Outups</h2>
-        <mat-card *ngFor="let outup of outupPlugins" cdkDrag>
-          <mat-card-header>
-            <mat-card-title>{{outup.name}}</mat-card-title>
-            <mat-card-subtitle>{{outup.category}}</mat-card-subtitle>
-          </mat-card-header>
-        </mat-card>
+      <div class="section">
+        <div class="section-head">
+          <h2 class="m-0">outputs</h2>
+        </div>
+        <div class="list" cdkDropList #todoList="cdkDropList" [cdkDropListData]="outputPlugins"
+          [cdkDropListConnectedTo]="[OutputList]" (cdkDropListDropped)="onDrop($event)">
+          <div *ngFor="let output of outputPlugins" cdkDrag>
+            <app-plugin-card [content]="output" [source]="false"></app-plugin-card>
+          </div>
+
+        </div>
       </div>
     </div>
 
-    <div class="col-8">
-      <div class="row">
+    <div class="col-9">
+      <div class="row m-2 ">
         <div class="col-1">
-          <button (click)="onBack()">Back</button>
+          <button class="button-bredcrums" (click)="onBack()">Back</button>
         </div>
         <div class="col-1">
-          <button (click)="onNext()">Next</button>
+          <button class="button-bredcrums" (click)="onNext()">Next</button>
         </div>
       </div>
-      <div class="row">
+      <div class="section">
+        <div class="section-head">
+          <h2 class="m-0">My inputs</h2>
+        </div>
         <div class="list" cdkDropList #inputsList="cdkDropList" [cdkDropListData]="inputs" [cdkDropListConnectedTo]=""
           (cdkDropListDropped)="onDrop($event)">
-          <h2>My inputs</h2>
-          <mat-card *ngFor="let input of inputs" cdkDrag>
-            <mat-card-header>
-              <mat-card-title>{{input.name}}</mat-card-title>
-              <mat-card-subtitle>{{input.category}}</mat-card-subtitle>
-              <mat-card-actions (click)="removeItem(input)">x</mat-card-actions>
-            </mat-card-header>
-          </mat-card>
+          <div *ngFor="let input of inputs" cdkDrag>
+            <app-plugin-card [content]="input" [source]="true"></app-plugin-card>
+          </div>
         </div>
       </div>
-      <div class="row">
+      <div class="section">
+        <div class="section-head">
+          <h2 class="m-0">My filter</h2>
+        </div>
         <div class="list" cdkDropList #filtersList="cdkDropList" [cdkDropListData]="filters" [cdkDropListConnectedTo]=""
           (cdkDropListDropped)="onDrop($event)">
-          <h2>My filter</h2>
-          <mat-card *ngFor="let filter of filters" cdkDrag>
-            <mat-card-header>
-              <mat-card-title>{{filter.name}}</mat-card-title>
-              <mat-card-subtitle>{{filter.category}}</mat-card-subtitle>
-              <mat-card-actions>x</mat-card-actions>
-            </mat-card-header>
-          </mat-card>
+          <div *ngFor="let filter of filters" cdkDrag>
+            <app-plugin-card [content]="filter" [source]="true"></app-plugin-card>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="list" cdkDropList #OutputList="cdkDropList" [cdkDropListData]="filters" [cdkDropListConnectedTo]=""
+      <div class="section">
+        <div class="section-head">
+          <h2 class="m-0">My Output</h2>
+        </div>
+        <div class="list" cdkDropList #OutputList="cdkDropList" [cdkDropListData]="outputs" [cdkDropListConnectedTo]=""
           (cdkDropListDropped)="onDrop($event)">
-          <h2>My Output</h2>
-          <mat-card *ngFor="let filter of filters" cdkDrag>
-            <mat-card-header>
-              <mat-card-title>{{filter.name}}</mat-card-title>
-              <mat-card-subtitle>{{filter.category}}</mat-card-subtitle>
-              <mat-card-actions>x</mat-card-actions>
-            </mat-card-header>
-          </mat-card>
+          <div  *ngFor="let output of outputs" cdkDrag>
+            <app-plugin-card [content]="output" [source]="true"></app-plugin-card>
+          </div>
         </div>
       </div>
     </div>

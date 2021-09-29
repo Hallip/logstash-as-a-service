@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem, copyArrayItem } from '@angular/cdk/drag-drop';
+import { Plugin } from 'src/app/models/Plugin';
 
 @Component({
   selector: 'app-drag-drop',
@@ -14,71 +15,107 @@ export class DragDropComponent implements OnInit {
   historyChanges = []
   pointer = 0
 
-  todos = [
-    {
-      name: 'If',
-      category: 'Web Development'
-    },
-    {
-      name: 'elseif',
-      category: 'Web Development'
-    },
-    {
-      name: 'Else',
-      category: 'App Development'
-    }
-  ];
+  // todos = [
+  //   {
+  //     name: 'If',
+  //     category: 'Web Development'
+  //   },
+  //   {
+  //     name: 'elseif',
+  //     category: 'Web Development'
+  //   },
+  //   {
+  //     name: 'Else',
+  //     category: 'App Development'
+  //   }
+  // ];
 
-  inputPlugins = [
+  inputPlugins: Plugin[] = [
     {
-      name: 'sql',
-      category: 'Web Development'
-    },
-    {
-      name: 'file',
-      category: 'Web Development'
+      name: 'Jdbc',
+      type: 'Input',
+      description: 'This plugin was created as a way to ingest data in any database with a JDBC interface into Logstash. You can periodically schedule ingestion using a cron syntax (see schedule setting) or run the query one time to load data into Logstash. Each row in the resultset becomes a single event. Columns in the resultset are converted into fields in the event.',
+      avalibleConfigs: [
+        {
+          setting: 'jdbc_connection_string',
+          type: 'string',
+          required: true,
+          hasValueList: false
+        }
+      ],
+      configs: [
+        {
+          setting: 'jdbc_connection_string',
+          type: 'string',
+          required: true,
+          hasValueList: false
+        }
+      ]
     }
   ];
 
   filterPlugins = [
     {
       name: 'grock',
-      category: 'Web Development'
+      type: 'filter',
+      description: 'do grock things'
     },
     {
       name: 'mutate',
-      category: 'Web Development'
+      type: 'filter',
+      description: 'do mutate things'
     }
   ];
 
-  outupPlugins = [
+  outputPlugins = [
     {
-      name: 'grock',
-      category: 'Web Development'
+      name: 'EasticSearch',
+      type: 'Output',
+      description: 'move things to elasticsearch'
     },
     {
-      name: 'mutate',
-      category: 'Web Development'
-    }
+      name: 'File',
+      type: 'Output',
+      description: 'move things to a file'
+    },
   ];
 
 
-  inputs = [
+  inputs: Plugin[] = [
     {
-      name: 'Android',
-      category: 'Mobile Development'
+      name: 'Jdbc',
+      type: 'Input',
+      description: 'This plugin was created as a way to ingest data in any database with a JDBC interface into Logstash. You can periodically schedule ingestion using a cron syntax (see schedule setting) or run the query one time to load data into Logstash. Each row in the resultset becomes a single event. Columns in the resultset are converted into fields in the event.',
+      avalibleConfigs: [
+        {
+          setting: 'jdbc_connection_string',
+          type: 'string',
+          required: true,
+          hasValueList: false
+        }
+      ],
+      configs: [
+        {
+          setting: 'jdbc_connection_string',
+          type: 'string',
+          required: true,
+          hasValueList: false
+        }
+      ]
     }
   ];
   filters = [
     {
-      name: 'Android',
-      category: 'Mobile Development'
+      name: 'grock',
+      type: 'filter',
+      description: 'do grock things'
     }
   ];
   outputs = [
     {
-      name: 'Android',
-      category: 'Mobile Development'
+      name: 'File',
+      type: 'Output',
+      description: 'move things to a file'
     }
   ];
 
