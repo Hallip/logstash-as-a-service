@@ -17,8 +17,8 @@
         </div>
         <div class="list" cdkDropList #todoList="cdkDropList" [cdkDropListData]="inputPlugins"
           [cdkDropListConnectedTo]="[inputsList]" (cdkDropListDropped)="onDrop($event)">
-          <div *ngFor="let input of inputPlugins" cdkDrag>
-            <app-plugin-card [content]="input" [source]="false"></app-plugin-card>
+          <div *ngFor="let input of inputPlugins; index as i; let last = last" cdkDrag>
+            <app-plugin-card [content]="input" [source]="false" [last]="last"></app-plugin-card>
           </div>
         </div>
       </div>
@@ -28,8 +28,8 @@
         </div>
         <div class="list" cdkDropList #todoList="cdkDropList" [cdkDropListData]="filterPlugins"
           [cdkDropListConnectedTo]="[filtersList]" (cdkDropListDropped)="onDrop($event)">
-          <div *ngFor="let filter of filterPlugins ; index as i;" cdkDrag>
-            <app-plugin-card [content]="filter" [source]="false" [acordionId]="'acordionFilter'+i"></app-plugin-card>
+          <div *ngFor="let filter of filterPlugins; index as i; let last = last" cdkDrag>
+            <app-plugin-card [content]="filter" [source]="false" [last]="last"></app-plugin-card>
           </div>
         </div>
       </div>
@@ -39,8 +39,8 @@
         </div>
         <div class="list" cdkDropList #todoList="cdkDropList" [cdkDropListData]="outputPlugins"
           [cdkDropListConnectedTo]="[OutputList]" (cdkDropListDropped)="onDrop($event)">
-          <div *ngFor="let output of outputPlugins" cdkDrag>
-            <app-plugin-card [content]="output" [source]="false"></app-plugin-card>
+          <div *ngFor="let output of outputPlugins; index as i; let last = last" cdkDrag>
+            <app-plugin-card [content]="output" [source]="false" [last]="last"></app-plugin-card>
           </div>
 
         </div>
@@ -50,10 +50,10 @@
     <div class="col-9">
       <div class="row m-2 ">
         <div class="col-1">
-          <button class="button-bredcrums" (click)="onBack()">Back</button>
+          <button class="button" (click)="onBack()">Back</button>
         </div>
         <div class="col-1">
-          <button class="button-bredcrums" (click)="onNext()">Next</button>
+          <button class="button" (click)="onNext()">Next</button>
         </div>
       </div>
       <div class="section">
@@ -62,8 +62,8 @@
         </div>
         <div class="list" cdkDropList #inputsList="cdkDropList" [cdkDropListData]="inputs" [cdkDropListConnectedTo]=""
           (cdkDropListDropped)="onDrop($event)">
-          <div *ngFor="let input of inputs" cdkDrag>
-            <app-plugin-card [content]="input" [source]="true"></app-plugin-card>
+          <div *ngFor="let input of inputs; index as i; let last = last" cdkDrag>
+            <app-plugin-card [content]="input" [source]="true" [last]="last"></app-plugin-card>
           </div>
         </div>
       </div>
@@ -73,8 +73,8 @@
         </div>
         <div class="list" cdkDropList #filtersList="cdkDropList" [cdkDropListData]="filters" [cdkDropListConnectedTo]=""
           (cdkDropListDropped)="onDrop($event)">
-          <div *ngFor="let filter of filters" cdkDrag>
-            <app-plugin-card [content]="filter" [source]="true"></app-plugin-card>
+          <div *ngFor="let filter of filters; index as i; let last = last" cdkDrag>
+            <app-plugin-card [content]="filter" [source]="true" [last]="last"></app-plugin-card>
           </div>
         </div>
       </div>
@@ -84,8 +84,8 @@
         </div>
         <div class="list" cdkDropList #OutputList="cdkDropList" [cdkDropListData]="outputs" [cdkDropListConnectedTo]=""
           (cdkDropListDropped)="onDrop($event)">
-          <div  *ngFor="let output of outputs" cdkDrag>
-            <app-plugin-card [content]="output" [source]="true"></app-plugin-card>
+          <div  *ngFor="let output of outputs; index as i; let last = last" cdkDrag>
+            <app-plugin-card [content]="output" [source]="true" [last]="last"></app-plugin-card>
           </div>
         </div>
       </div>

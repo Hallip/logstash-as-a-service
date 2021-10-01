@@ -11,8 +11,10 @@ export class PluginCardComponent implements OnInit {
   @Input() content:Plugin;
   @Input() source:Boolean;
   @Input() acordionId:string;
+  @Input() last:boolean = false;
 
-  public opened:boolean = false;
+  public isCollapsed = true;
+
 
   constructor() { }
 

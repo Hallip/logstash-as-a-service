@@ -1,16 +1,26 @@
-<div class="element">
+<div class="element" [ngClass]="{'last_element': last}">
   <div class="acordion">
-    <div>
+    <div class="text-center">
       <span class="title">{{content?.name}}</span>
     </div>
     <div *ngIf="!source">
-      <div class="accordion-header" (click)="opened =!opened">
-        <div>
-          <span class="subtitle">Description</span>
+      <span class="text-blood">Version: </span><span class="text-ligth">{{content?.version}}</span>
+    </div>
+    <div class="mb-2" *ngIf="!source">
+      <span class="text-blood">Released Date: </span><span class="text-ligth">{{content?.releasedDate}}</span>
+    </div>
+    <div *ngIf="!source">
+
+      <button type="button" class="button acordion mb-0" (click)="isCollapsed = !isCollapsed"
+        [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+        Description
+      </button>
+      <div id="collapseExample" [ngbCollapse]="isCollapsed">
+        <div class="accordion-body">
+          <div class="">
+            {{content?.description}}
+          </div>
         </div>
-      </div>
-      <div class="accordion-body" [ngClass]="{'acordion-open': opened}">
-        <p>{{content?.description}}</p>
       </div>
     </div>
   </div>

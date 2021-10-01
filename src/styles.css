@@ -3,21 +3,66 @@
 
 
 body {
-    font-family: "Nunito", sans-serif;
-    overflow-x: hidden !important;
-    font-size: 1.170rem;
-    color: #DDDDDD;
-    background-color: #161616;
-  }
-.title{
-  font-size:x-large;
+  font-family: "Nunito", sans-serif;
+  overflow-x: hidden !important;
+  font-size: 1.170rem;
+  color: #DDDDDD;
+  background-color: #161616;
+}
+
+.title {
+  font-size: x-large;
   font-weight: 600;
 }
+
 .subtitle {
-  font-size:large;
+  font-size: large;
   font-weight: 600;
 }
-p{
+.text-blood{
+  font-size: medium;
+  font-weight: 600;
+}
+.text-ligth{
+  font-size: medium;
+  font-weight: 200;
+}
+.text{
+  font-size: medium;
+  font-weight: 400;
+}
+p {
   font-size: medium;
   font-weight: 300;
+}
+
+
+.button {
+  border-radius: 5px;
+  background: rgb(221, 221, 221);
+  background: linear-gradient(90deg, rgba(221, 221, 221, 1) 0%, rgba(64, 101, 226, 1) 0%, rgba(47, 85, 212, 1) 100%);
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  padding-left: 1em;
+  padding-right: 1em;
+  font-weight: 800;
+  color: #ddd;
+  border-width: 0px;
+}
+
+.button:hover {
+  cursor: pointer;
+  background: rgb(221, 221, 221);
+  background: linear-gradient(90deg, rgba(221, 221, 221, 1) 0%, rgb(82, 118, 235) 0%, rgb(55, 96, 231) 100%);
+}
+
+.remove-button {
+  color: #F92672;
+  font-size: 32px;
+  padding-top: 0.3em;
+}
+
+.remove-button:hover {
+  color: #ce0a52;
+  cursor: pointer;
 }

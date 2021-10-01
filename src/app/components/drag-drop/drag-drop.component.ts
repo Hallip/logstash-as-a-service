@@ -43,6 +43,8 @@ export class DragDropComponent implements OnInit {
           hasValueList: false
         }
       ],
+      version: "v5.1.5",
+      releasedDate: "2021-08-04",
       configs: [
         {
           setting: 'jdbc_connection_string',
@@ -94,6 +96,8 @@ export class DragDropComponent implements OnInit {
           hasValueList: false
         }
       ],
+      version: "v5.1.5",
+      releasedDate: "2021-08-04",
       configs: [
         {
           setting: 'jdbc_connection_string',

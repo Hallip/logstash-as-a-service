@@ -43,12 +43,9 @@
 }
 
 
-mat-card {
-  cursor: pointer;
-}
 
 .list {
-  /* padding: 1em; */
+  padding: 7px;
 }
 
 

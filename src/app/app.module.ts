@@ -14,6 +14,9 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PluginCardComponent } from './components/plugin-card/plugin-card.component';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +31,8 @@ import { PluginCardComponent } from './components/plugin-card/plugin-card.compon
     BrowserAnimationsModule,
     MatCardModule,
     DragDropModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
