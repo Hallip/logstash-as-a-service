@@ -40,7 +40,8 @@ export class DragDropComponent implements OnInit {
           setting: 'jdbc_connection_string',
           type: 'string',
           required: true,
-          hasValueList: false
+          hasValueList: false,
+          requiredDepends: false
         }
       ],
       version: "v5.1.5",
@@ -50,7 +51,8 @@ export class DragDropComponent implements OnInit {
           setting: 'jdbc_connection_string',
           type: 'string',
           required: true,
-          hasValueList: false
+          hasValueList: false,
+          requiredDepends: false
         }
       ]
     }
@@ -93,7 +95,8 @@ export class DragDropComponent implements OnInit {
           setting: 'jdbc_connection_string',
           type: 'string',
           required: true,
-          hasValueList: false
+          hasValueList: false,
+          requiredDepends: false
         }
       ],
       version: "v5.1.5",
@@ -103,7 +106,8 @@ export class DragDropComponent implements OnInit {
           setting: 'jdbc_connection_string',
           type: 'string',
           required: true,
-          hasValueList: false
+          hasValueList: false,
+          requiredDepends: false
         }
       ]
     }

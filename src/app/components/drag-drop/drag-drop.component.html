@@ -1,16 +1,18 @@
-<div class="dev-tools">
+<div class="dev-tools pt-2">
+
+  <!-- Interactive head buttons -->
+  <div class="row m-2 mt-0">
+    <div class="col-1">
+      <button class="button" (click)="onBack()">Back</button>
+    </div>
+    <div class="col-1">
+      <button class="button" (click)="onNext()">Next</button>
+    </div>
+  </div>
+
+  <!-- Sections Inputs, Filters, Outputs -->
   <div class="row">
     <div class="col-3">
-      <!-- <div class="list" cdkDropList #todoList="cdkDropList" [cdkDropListData]="todos"
-        [cdkDropListConnectedTo]="[inputsList,filtersList,OutputList]" (cdkDropListDropped)="onDrop($event)">
-        <h2>General</h2>
-        <mat-card *ngFor="let todo of todos" cdkDrag>
-          <mat-card-header>
-            <mat-card-title>{{todo.name}}</mat-card-title>
-            <mat-card-subtitle>{{todo.category}}</mat-card-subtitle>
-          </mat-card-header>
-        </mat-card>
-      </div> -->
       <div class="section">
         <div class="section-head">
           <h2 class="m-0">Inputs</h2>
@@ -22,6 +24,23 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="col-9">
+      <div class="section">
+        <div class="section-head">
+          <h2 class="m-0">Pipeline Inputs</h2>
+        </div>
+        <div class="list" cdkDropList #inputsList="cdkDropList" [cdkDropListData]="inputs" [cdkDropListConnectedTo]=""
+          (cdkDropListDropped)="onDrop($event)">
+          <div *ngFor="let input of inputs; index as i; let last = last" cdkDrag>
+            <app-plugin-card [content]="input" [source]="true" [last]="last"></app-plugin-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">
       <div class="section">
         <div class="section-head">
           <h2 class="m-0">Filters</h2>
@@ -33,6 +52,23 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="col-9">
+      <div class="section">
+        <div class="section-head">
+          <h2 class="m-0">Pipeline Filters</h2>
+        </div>
+        <div class="list" cdkDropList #filtersList="cdkDropList" [cdkDropListData]="filters" [cdkDropListConnectedTo]=""
+          (cdkDropListDropped)="onDrop($event)">
+          <div *ngFor="let filter of filters; index as i; let last = last" cdkDrag>
+            <app-plugin-card [content]="filter" [source]="true" [last]="last"></app-plugin-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">
       <div class="section">
         <div class="section-head">
           <h2 class="m-0">outputs</h2>
@@ -48,43 +84,13 @@
     </div>
 
     <div class="col-9">
-      <div class="row m-2 ">
-        <div class="col-1">
-          <button class="button" (click)="onBack()">Back</button>
-        </div>
-        <div class="col-1">
-          <button class="button" (click)="onNext()">Next</button>
-        </div>
-      </div>
       <div class="section">
         <div class="section-head">
-          <h2 class="m-0">My inputs</h2>
-        </div>
-        <div class="list" cdkDropList #inputsList="cdkDropList" [cdkDropListData]="inputs" [cdkDropListConnectedTo]=""
-          (cdkDropListDropped)="onDrop($event)">
-          <div *ngFor="let input of inputs; index as i; let last = last" cdkDrag>
-            <app-plugin-card [content]="input" [source]="true" [last]="last"></app-plugin-card>
-          </div>
-        </div>
-      </div>
-      <div class="section">
-        <div class="section-head">
-          <h2 class="m-0">My filter</h2>
-        </div>
-        <div class="list" cdkDropList #filtersList="cdkDropList" [cdkDropListData]="filters" [cdkDropListConnectedTo]=""
-          (cdkDropListDropped)="onDrop($event)">
-          <div *ngFor="let filter of filters; index as i; let last = last" cdkDrag>
-            <app-plugin-card [content]="filter" [source]="true" [last]="last"></app-plugin-card>
-          </div>
-        </div>
-      </div>
-      <div class="section">
-        <div class="section-head">
-          <h2 class="m-0">My Output</h2>
+          <h2 class="m-0">Pipeline Outputs</h2>
         </div>
         <div class="list" cdkDropList #OutputList="cdkDropList" [cdkDropListData]="outputs" [cdkDropListConnectedTo]=""
           (cdkDropListDropped)="onDrop($event)">
-          <div  *ngFor="let output of outputs; index as i; let last = last" cdkDrag>
+          <div *ngFor="let output of outputs; index as i; let last = last" cdkDrag>
             <app-plugin-card [content]="output" [source]="true" [last]="last"></app-plugin-card>
           </div>
         </div>

@@ -1,3 +1,4 @@
+import { Dependences } from "./Dependences";
 
 export class PluginSettings {
 
@@ -6,6 +7,8 @@ export class PluginSettings {
         public type: string,
         public required: boolean,
         public hasValueList: boolean,
+        public requiredDepends: boolean,
+        public dependence?: Dependences[], 
         public valueList?: any[],
         public selectedValue?: any[]
     ) {}
