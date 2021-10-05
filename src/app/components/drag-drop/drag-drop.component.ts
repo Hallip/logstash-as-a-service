@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem, copyArrayItem } from '@angular/cdk/drag-drop';
 import { Plugin } from 'src/app/models/Plugin';
+import { GetPlguinsService } from 'src/app/services/get-plguins.service';
 
 @Component({
   selector: 'app-drag-drop',
@@ -8,9 +9,6 @@ import { Plugin } from 'src/app/models/Plugin';
   styleUrls: ['./drag-drop.component.css']
 })
 export class DragDropComponent implements OnInit {
-
-  title = 'Drag & Drop in Angular 7';
-  website = 'https://samorgill.com';
 
   historyChanges = []
   pointer = 0
@@ -31,31 +29,6 @@ export class DragDropComponent implements OnInit {
   // ];
 
   inputPlugins: Plugin[] = [
-    {
-      name: 'Jdbc',
-      type: 'Input',
-      description: 'This plugin was created as a way to ingest data in any database with a JDBC interface into Logstash. You can periodically schedule ingestion using a cron syntax (see schedule setting) or run the query one time to load data into Logstash. Each row in the resultset becomes a single event. Columns in the resultset are converted into fields in the event.',
-      avalibleConfigs: [
-        {
-          setting: 'jdbc_connection_string',
-          type: 'string',
-          required: true,
-          hasValueList: false,
-          requiredDepends: false
-        }
-      ],
-      version: "v5.1.5",
-      releasedDate: "2021-08-04",
-      configs: [
-        {
-          setting: 'jdbc_connection_string',
-          type: 'string',
-          required: true,
-          hasValueList: false,
-          requiredDepends: false
-        }
-      ]
-    }
   ];
 
   filterPlugins = [
@@ -176,9 +149,15 @@ export class DragDropComponent implements OnInit {
 
   }
 
-  constructor() { }
+  constructor(public getPluginsService: GetPlguinsService) { }
 
   ngOnInit(): void {
+    var request = this.getPluginsService.getPlugins("input").subscribe((resp: any) => {
+      console.log(resp)
+      resp.hits.hits.forEach(element => {
+        this.inputPlugins.push(element._source)
+      });
+    });
     this.historyChanges.push(
       {
         inputs: JSON.parse(JSON.stringify(this.inputs)),

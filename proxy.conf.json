@@ -1,0 +1,7 @@
+{
+  "/las-pluguins/*": {
+    "target": "http://elastic:FARpud68@192.168.10.6:9200",
+    "secure": true,
+    "changeOrigin": true
+  }
+}

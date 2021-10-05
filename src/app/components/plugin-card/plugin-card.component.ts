@@ -19,7 +19,7 @@ export class PluginCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.acordionId)
+  //  console.log(this.acordionId)
   }
 
 }

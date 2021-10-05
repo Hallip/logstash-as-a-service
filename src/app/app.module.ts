@@ -15,6 +15,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { PluginCardComponent } from './components/plugin-card/plugin-card.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     MatCardModule,
     DragDropModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
