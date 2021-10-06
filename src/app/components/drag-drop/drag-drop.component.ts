@@ -28,35 +28,11 @@ export class DragDropComponent implements OnInit {
   //   }
   // ];
 
-  inputPlugins: Plugin[] = [
-  ];
+  inputPlugins: Plugin[] = [];
 
-  filterPlugins = [
-    {
-      name: 'grock',
-      type: 'filter',
-      description: 'do grock things'
-    },
-    {
-      name: 'mutate',
-      type: 'filter',
-      description: 'do mutate things'
-    }
-  ];
+  filterPlugins: Plugin[] = [];
 
-  outputPlugins = [
-    {
-      name: 'EasticSearch',
-      type: 'Output',
-      description: 'move things to elasticsearch'
-    },
-    {
-      name: 'File',
-      type: 'Output',
-      description: 'move things to a file'
-    },
-  ];
-
+  outputPlugins: Plugin[] = [];
 
   inputs: Plugin[] = [
     {
@@ -156,6 +132,18 @@ export class DragDropComponent implements OnInit {
       console.log(resp)
       resp.hits.hits.forEach(element => {
         this.inputPlugins.push(element._source)
+      });
+    });
+    var request = this.getPluginsService.getPlugins("filter").subscribe((resp: any) => {
+      console.log(resp)
+      resp.hits.hits.forEach(element => {
+        this.filterPlugins.push(element._source)
+      });
+    });
+    var request = this.getPluginsService.getPlugins("output").subscribe((resp: any) => {
+      console.log(resp)
+      resp.hits.hits.forEach(element => {
+        this.outputPlugins.push(element._source)
       });
     });
     this.historyChanges.push(
